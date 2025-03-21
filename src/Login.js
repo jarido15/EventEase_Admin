@@ -7,7 +7,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [showModal, setShowModal] = useState(false);
-  const [showPassword, setShowPassword] = useState(false); // State for toggling password visibility
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -19,9 +19,6 @@ const Login = () => {
     if (email === staticEmail && password === staticPassword) {
       setError("");
       setShowModal(true); // Show the modal on success
-
-      // Persist login state in localStorage
-      localStorage.setItem("isLoggedIn", "true");
     } else {
       setError("❌ Invalid email or password.");
     }
@@ -57,7 +54,7 @@ const Login = () => {
             <label className="block text-gray-600 font-medium">Password</label>
             <div className="relative">
               <input
-                type={showPassword ? "text" : "password"} // Toggle password visibility
+                type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full px-4 py-3 mt-2 border rounded-lg focus:ring-2 focus:ring-blue-400 outline-none transition-all duration-300 ease-in-out"
@@ -66,7 +63,7 @@ const Login = () => {
               />
               <button
                 type="button"
-                onClick={() => setShowPassword(!showPassword)} // Toggle showPassword state
+                onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500"
               >
                 {showPassword ? "Hide" : "Show"}
